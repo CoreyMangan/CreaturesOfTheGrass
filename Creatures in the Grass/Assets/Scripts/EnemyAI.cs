@@ -45,7 +45,7 @@ public class EnemyAI : MonoBehaviour {
         {
             Debug.Log("Enemy Attacking Player");
             transform.Translate(Vector3.forward * 0);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().playerHP -= dmg;
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().playerHP -= dmg;
         }
     }
 }

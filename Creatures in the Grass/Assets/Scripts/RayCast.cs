@@ -33,7 +33,8 @@ public class RayCast : MonoBehaviour {
         {
             Debug.Log(hit.collider.gameObject);
 
-            hit.collider.GetComponent<EnemyHealth>().enemyHP -= dmg;
+            if(hit.collider.CompareTag("Enemy"))
+                hit.collider.GetComponent<EnemyHealth>().enemyHP -= dmg;
         }
     }
 }

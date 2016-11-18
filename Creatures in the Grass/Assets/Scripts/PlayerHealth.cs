@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
-    public float playerHP;
+    public float playerHP = 100f;
     public Slider healthSlider;
 
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        playerHP = healthSlider.value;
+        healthSlider.value = playerHP;
 
         if(playerHP <= 0)
         {
@@ -21,4 +21,12 @@ public class PlayerHealth : MonoBehaviour {
         }
 	
 	}
+
+    void onTiggerEnter(Collider col)
+    {
+        if(col.CompareTag("Enemy"))
+        {
+            playerHP -= 20f;
+        }
+    }
 }

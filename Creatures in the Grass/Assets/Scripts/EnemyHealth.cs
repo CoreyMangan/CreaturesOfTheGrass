@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
-    public float enemyHP;
+    public float enemyHP = 100f;
 
 	// Use this for initialization
 	void Start () {
