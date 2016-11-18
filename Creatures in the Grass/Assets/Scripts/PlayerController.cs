@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour {
 
     Vector3 moveDir = Vector3.zero;
 
-    private CharacterController cc;
+    private Rigidbody rb;
     public float sprintSpeed = 0f;
     private float mouseX;
     private float mouseY;
     private float rotRange = 60f;
 
 	void Start () {
-        cc = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
 
         //Hide mouse
         Cursor.visible = false;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
         float moveVer = Input.GetAxis("Vertical") * verSpeed + sprintSpeed;
         float moveHor = Input.GetAxis("Horizontal") * horSpeed;
         moveDir = new Vector3(moveHor, 0, moveVer);
-        moveDir = transform.TransformDirection(moveDir);
+        //moveDir = transform.TransformDirection(moveDir);
 
         //Sprint
         if(Input.GetKey(KeyCode.LeftShift))
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         //moveDir.y -= gravity;
-        cc.Move(moveDir * Time.deltaTime);
+        transform.Translate(moveDir * Time.deltaTime);
 
         //Rotation
         mouseX = Input.GetAxis("Mouse X") * rotSpeed;

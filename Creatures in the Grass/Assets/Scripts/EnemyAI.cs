@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         distanceToTarget = Vector3.Distance(transform.position, target.position);
+        transform.LookAt(target);
         moveAI();
 	}
 
@@ -30,8 +31,8 @@ public class EnemyAI : MonoBehaviour {
         if(distanceToTarget <= lookDistance)
         {
             Debug.Log("Enemy Looking At Player");
-            targetRotation = Quaternion.LookRotation(target.position - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
+            /*targetRotation = Quaternion.LookRotation(target.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);*/
         }
 
         if(distanceToTarget <= chaseDistance)
